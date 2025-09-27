@@ -7,5 +7,4 @@ public enum PlayingLevel {
     CLUB,
     SCHOOL,
     STREET
-
 }
