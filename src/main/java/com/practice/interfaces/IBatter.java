@@ -1,6 +1,6 @@
 package com.practice.interfaces;
 
-public interface BatterInterface {
+public interface IBatter {
 
     void playShot();
     void runBetweenWickets(Integer runs);

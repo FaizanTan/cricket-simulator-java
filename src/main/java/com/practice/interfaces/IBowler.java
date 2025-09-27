@@ -1,5 +1,5 @@
 package com.practice.interfaces;
 
-public interface BowlerInterface {
+public interface IBowler {
     void bowl();
 }
