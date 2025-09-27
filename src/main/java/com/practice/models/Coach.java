@@ -11,5 +11,5 @@ import java.util.Map;
 public class Coach extends Identifiable {
 
     private Map<Map<PlayingLevel, String>, Boolean> coachedTeams;
-    private Team coachingTeam;
+    private Team currentTeam;
 }

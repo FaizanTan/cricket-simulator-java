@@ -1,72 +1,43 @@
 package com.practice.menus;
 
 import com.practice.interfaces.Printable;
-import lombok.Getter;
-import lombok.Setter;
+import com.practice.models.Identifiable;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
-public class Menu implements Printable {
-
+public class Menu extends Identifiable implements Printable {
+    ;
     private String title;
-    private Map<Integer, MenuItem> items = new TreeMap<>();
+    private List<MenuItem> menuItems;
 
-    public Menu(String title) {
-        this.title = title;
-        MenuItem item = MenuItem.builder()
-                .description("<- Go Back")
-                .build();
-        items.put(1, item);
-    }
+    public Menu(String title, List<MenuItem> menuItems) {
+        this.title = null != title && !title.isEmpty() ? title : "Menu";
 
-    public String getTitle() {
-        return title;
-    }
+        this.menuItems = new ArrayList<MenuItem>();
+        this.menuItems.add(MenuItem.back);
 
-    public void addItem(String description, Runnable action) {
-        MenuItem item = MenuItem.builder()
-                .description(description)
-                .action(action)
-                .build();
-        items.put(items.size() + 1, item);
-    }
-
-    public MenuItem removeItem(int key) {
-        if(key > items.size() || key <= 1) return null;
-        return items.remove(key);
-    }
-
-    public void removeItems(List<Integer> keys) {
-        keys.forEach(this::removeItem);
-    }
-
-    public MenuItem getItemAt(int key) {
-        return items.get(key);
-    }
-
-    public void setNextMenuForItemAt(int key, Menu nextMenu) {
-        if(key > items.size() || key <= 1) return;
-
-        MenuItem item = items.get(key);
-        if (item != null) {
-            item.setNextMenu(nextMenu);
+        if(null != menuItems && !menuItems.isEmpty()) {
+            menuItems.sort(Comparator.comparing(MenuItem::getOrder));
+            this.menuItems.addAll(menuItems);
         }
     }
 
     @Override
     public void print() {
-        if (items.isEmpty()) return;
-
+        if (menuItems.isEmpty()) return;
         System.out.println("-------------------------------------"+title+"-------------------------------------");
-
-        items.forEach((key, item) -> {
-           System.out.println("\t\t" + key + ".\t" + item.getDescription() + ".");
-        });
-
+        menuItems.forEach((item) -> { System.out.println("\t\t" + item.getOrder() + ".\t" + item.getDescription() + "."); });
         System.out.println("-----------------------------------------------------------------------------------");
+        System.out.print("Enter your choice [1 - " + getItemCount() + "]: ");
+    }
 
-        System.out.print("Enter your choice [1 - " + items.size() + "]: ");
+    public Integer getItemCount() {
+        return menuItems.size() + 1;
+    }
+
+    public MenuItem getItemAt(int i) {
+        return menuItems.get(i);
     }
 }

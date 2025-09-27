@@ -5,13 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Map;
+import java.util.Optional;
 
 @Getter
 @Setter
 @Builder
 public class WicketKeeper extends CricketPlayer {
 
-    private Batter batterPart;
+    private Optional<Batter> batterPart;
 
     private Map<Integer, Integer> stumpingsPerMatch;
     private Map<Integer, Integer> catchesPerMatch;

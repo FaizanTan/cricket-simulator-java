@@ -18,6 +18,14 @@ public class TeamManager extends Identifiable {
     private String name;
     private Team managedTeam;
 
+    public void removePlayer(Long playerId) {
+        if(null == playerId || null == managedTeam) return;
+
+        Set<CricketPlayer> updatedPlayers = managedTeam.getPlayers().stream().filter(p -> !p.getId().equals(playerId)).collect(Collectors.toSet());
+
+        managedTeam.setPlayers(updatedPlayers);
+    }
+
     public void appointTeamCaptain(Long playerId) {
         if(null == playerId || null == managedTeam) return;
 
@@ -45,7 +53,7 @@ public class TeamManager extends Identifiable {
             existingCoach.getCoachedTeams().put(Map.of(managedTeam.getPlayingLevel(), managedTeam.getTeamName()), true);
         }
 
-        coach.setCoachingTeam(managedTeam);
+        coach.setCurrentTeam(managedTeam);
         managedTeam.setCoach(coach);
     }
 }
