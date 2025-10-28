@@ -7,6 +7,7 @@ public enum BowlType {
     DOOSRA,
     LEG_CUTTER,
     OFF_CUTTER,
+    BACK_OF_HAND,
     FAST,
     MEDIUM,
     SLOW

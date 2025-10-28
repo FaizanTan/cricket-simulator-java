@@ -1,0 +1,55 @@
+{
+  "players": {
+    "Faizan": [
+      {
+        "id": 1,
+        "role": "Warrior",
+        "score": 120,
+        "level": 5
+      },
+      {
+        "id": 2,
+        "role": "Archer",
+        "score": 90,
+        "level": 3
+      }
+    ],
+    "Komal": [
+      {
+        "id": 3,
+        "role": "Mage",
+        "score": 110,
+        "level": 4
+      }
+    ],
+    "Alex": [
+      {
+        "id": 4,
+        "role": "Rogue",
+        "score": 105,
+        "level": 4
+      }
+    ]
+  },
+  "teams": {
+    "Red Dragons": [
+      {
+        "leader": "Faizan",
+        "members": 5,
+        "points": 300
+      },
+      {
+        "leader": "Komal",
+        "members": 3,
+        "points": 200
+      }
+    ],
+    "Blue Wolves": [
+      {
+        "leader": "Alex",
+        "members": 4,
+        "points": 250
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Menu extends Identifiable implements Printable {
-    ;
+
     private String title;
     private List<MenuItem> menuItems;
 

@@ -1,7 +1,7 @@
 package com.practice.models;
 
 import lombok.Getter;
-import com.practice.utils.IdGenerator;
+import com.practice.utils.identity.IdGenerator;
 
 @Getter
 abstract public class Identifiable {
@@ -9,6 +9,6 @@ abstract public class Identifiable {
 
     protected Identifiable() {
         String context = this.getClass().getSimpleName();
-        this.id = IdGenerator.nextId(context);
+        this.id = IdGenerator.generateIdFor(context);
     }
 }

@@ -1,5 +1,6 @@
 package com.practice.models;
 
+import com.practice.models.batter.Batter;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,5 +32,10 @@ public class WicketKeeper extends CricketPlayer {
 
     public Integer getTotalCatches() {
         return catchesPerMatch.values().stream().reduce(0, Integer::sum);
+    }
+
+    @Override
+    public void askForReview() {
+
     }
 }

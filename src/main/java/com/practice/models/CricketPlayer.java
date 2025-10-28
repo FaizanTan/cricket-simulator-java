@@ -10,6 +10,7 @@ import java.util.Set;
 public abstract class CricketPlayer extends Identifiable {
 
     private String firstName;
+    private String middleName;
     private String lastName;
     private Integer age;
     private String gender;
@@ -19,4 +20,6 @@ public abstract class CricketPlayer extends Identifiable {
     private PlayingHand playingHand;
     private Map<PlayingLevel, String> teamsMap;
     private Map<String, Boolean> captainedTeams;
+
+    public void askForReview() {}
 }
